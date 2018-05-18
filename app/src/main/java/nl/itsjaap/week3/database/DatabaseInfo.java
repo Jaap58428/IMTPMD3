@@ -2,12 +2,14 @@ package nl.itsjaap.week3.database;
 
 public class DatabaseInfo {
 
-    public class ItemTable {
-        public static final String ITEMTABLE = "ItemTable";   // NAAM VAN JE TABEL
+    public class CourseTable {
+        public static final String COURSETABLE = "CourseTable";
     }
 
-    public class ItemColumn {
-        public static final String NAME  = "name";	    // VASTE WAARDES
-        public static final String PRICE = "price";	    // NAAM VAN DE KOLOMMEN
+    public class CourseColumn {
+        public static final String NAME  = "name";
+        public static final String ECTS = "ects";
+        public static final String GRADE = "grade";
+        public static final String PERIOD = "period";
     }
 }

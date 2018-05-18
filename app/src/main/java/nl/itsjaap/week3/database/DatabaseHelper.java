@@ -10,15 +10,13 @@ import android.provider.BaseColumns;
 public class DatabaseHelper extends SQLiteOpenHelper {
     public static SQLiteDatabase mSQLDB;
     private static DatabaseHelper mInstance;
-    public static final String dbName = "items.db";
-    public static final int dbVersion = 3;        // Versie nr van je db.
+    public static final String dbName = "courses.db";
+    public static final int dbVersion = 2;
 
     private DatabaseHelper(Context ctx) {
-        super(ctx, dbName, null, dbVersion);    // gebruik de super constructor.
+        super(ctx, dbName, null, dbVersion);
     }
 
-    // synchronized … dit zorgt voor . . . . (?)
-    // welk design pattern is dit ??  ==> Dit is een Singleton Design Pattern
     public static synchronized DatabaseHelper getHelper(Context ctx) {
         if (mInstance == null) {
             mInstance = new DatabaseHelper(ctx);
@@ -27,19 +25,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return mInstance;
     }
 
-    @Override                                        // Maak je tabel met deze kolommen
+    @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE " + DatabaseInfo.ItemTable.ITEMTABLE + " (" +
+        db.execSQL("CREATE TABLE " + DatabaseInfo.CourseTable.COURSETABLE + " (" +
                 BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                DatabaseInfo.ItemColumn.NAME + " TEXT," +
-                DatabaseInfo.ItemColumn.PRICE + " TEXT);"
+                DatabaseInfo.CourseColumn.NAME + " TEXT," +
+                DatabaseInfo.CourseColumn.ECTS + " TEXT," +
+                DatabaseInfo.CourseColumn.GRADE + " TEXT," +
+                DatabaseInfo.CourseColumn.PERIOD + " TEXT);"
         );
     }
-    // CREATE TABLE CarTable (_id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, ects TEXT, grade TEXT);
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + DatabaseInfo.ItemTable.ITEMTABLE);
+        db.execSQL("DROP TABLE IF EXISTS " + DatabaseInfo.CourseTable.COURSETABLE);
         onCreate(db);
     }
 

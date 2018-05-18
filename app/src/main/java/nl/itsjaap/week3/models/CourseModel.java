@@ -1,29 +1,32 @@
 package nl.itsjaap.week3.models;
 
-/**
- * Created by mjboere on 28-11-2017.
- */
 public class CourseModel {
 
-    private String vakCode;
-    private String aantalECTS;
-    private String cijfer;
-    private String periode;
+    private String name;
+    private String ects;
+    private String grade;
+    private String period;
 
-    public CourseModel(String vc, String ae, String c, String p) {
-        this.vakCode = vc;
-        this.aantalECTS = ae;
-        this.cijfer = c;
-        this.periode = p;
+    public CourseModel(String n, String e, String g, String p) {
+        this.name = n;
+        this.ects = e;
+        this.grade = g;
+        this.period = p;
     }
 
     public String getName(){
-        return vakCode;
+        return name;
     }
 
     public String getEcts(){
-        return String.valueOf(aantalECTS);
+        return String.valueOf(ects);
     }
 
-    // ADD GETTERS AND SETTERS - ONLY IF NEEDED !!}
+    public String getGrade() {
+        return grade;
+    }
+
+    public String getPeriod() {
+        return period;
+    }
 }

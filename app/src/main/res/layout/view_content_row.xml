@@ -11,7 +11,8 @@
         android:layout_height="wrap_content"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
-        android:paddingTop="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="5dp"
         android:text=" DEZE TEXT LEES IK TERUG "
         android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
         />
@@ -22,7 +23,8 @@
         android:layout_height="wrap_content"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
-        android:paddingTop="20dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="10dp"
         android:text=" EN DEZE TEXT OOK "
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         />
